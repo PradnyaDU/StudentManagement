@@ -7,6 +7,7 @@ import com.FirstProject.StudentManagement.Entity.StudentEntity;
 import com.FirstProject.StudentManagement.Entity.SubjectEntity;
 import com.FirstProject.StudentManagement.Repository.StudentRepository;
 import com.FirstProject.StudentManagement.Repository.SubjectRepo;
+import com.FirstProject.StudentManagement.apiresponse.WeatherAPIResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -192,5 +193,11 @@ public class StudentServiceImplementations implements StudentService {
                 courseNames,
                 totalFee
         );
+    }
+
+    @Override
+    public WeatherAPIResponse getWeatherData(double lat, double lon) {
+        OpenWeatherService openWeatherService = new OpenWeatherService();
+        return openWeatherService.getWeatherData(lat, lon);
     }
 }

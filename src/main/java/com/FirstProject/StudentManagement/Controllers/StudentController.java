@@ -4,7 +4,9 @@ import com.FirstProject.StudentManagement.DTO.AssignCourseRequest;
 import com.FirstProject.StudentManagement.DTO.StudentCourseDetailsDto;
 import com.FirstProject.StudentManagement.DTO.StudentDto;
 import com.FirstProject.StudentManagement.DTO.StudentFeeDto;
+import com.FirstProject.StudentManagement.Service.OpenWeatherService;
 import com.FirstProject.StudentManagement.Service.StudentService;
+import com.FirstProject.StudentManagement.apiresponse.WeatherAPIResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,6 +21,8 @@ import java.util.List;
 public class StudentController {
 
     private final StudentService studentService;
+    private final OpenWeatherService openWeatherService;
+
 
     @GetMapping()
     public List<StudentDto> getAllStudent() {
@@ -71,5 +75,10 @@ public class StudentController {
                 studentId,
                 request.courseId()
         );
+    }
+
+    @GetMapping("/getWeather")
+    public WeatherAPIResponse getWeather(@RequestParam   double lat, @RequestParam double lon) {
+        return openWeatherService.getWeatherData(lat, lon);
     }
 }
