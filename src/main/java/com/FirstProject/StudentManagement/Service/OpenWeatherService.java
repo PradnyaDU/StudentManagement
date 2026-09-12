@@ -1,6 +1,7 @@
 package com.FirstProject.StudentManagement.Service;
 
 import com.FirstProject.StudentManagement.apiresponse.WeatherAPIResponse;
+import com.FirstProject.StudentManagement.configclasses.AppCacheConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
@@ -10,8 +11,11 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class OpenWeatherService {
 
-    @Value("${WEATHER_API_KEY}")
-    private String API_KEY;
+    @Autowired
+    private AppCacheConfig appCacheConfig;
+
+//    @Value("${WEATHER_API_KEY}")
+//    private String API_KEY;
     @Value("${WEATHER_API_URL}")
     private String BASE_URL;
 
@@ -19,8 +23,9 @@ public class OpenWeatherService {
     private RestTemplate restTemplate;
 
     public WeatherAPIResponse getWeatherData(double lat, double lon) {
+        String apiKey = appCacheConfig.get("APIKEY");
 
         String url = BASE_URL + "?lat={lat}&lon={lon}&appid={apiKey}&units=metric";
-        return restTemplate.exchange(url, HttpMethod.GET, null,WeatherAPIResponse.class, lat, lon, API_KEY).getBody();
+        return restTemplate.exchange(url, HttpMethod.GET, null,WeatherAPIResponse.class, lat, lon, apiKey).getBody();
     }
 }
