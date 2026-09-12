@@ -1,6 +1,6 @@
 name: SonarQube
 on:
-  push:
+  workflow_dispatch:
     branches:
       - main
   pull_request:
