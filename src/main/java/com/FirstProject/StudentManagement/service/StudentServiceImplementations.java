@@ -196,7 +196,7 @@ public class StudentServiceImplementations implements StudentService {
     }
 
     @Override
-    public WeatherAPIResponse getWeatherData(double lat, double lon) {
+    public WeatherAPIResponse getWeatherData(double lat, double lon) throws Exception {
         OpenWeatherService openWeatherService = new OpenWeatherService();
         return openWeatherService.getWeatherData(lat, lon);
     }

@@ -26,5 +26,5 @@ public interface StudentService {
 
     StudentCourseDetailsDto removeCourseToStudent(int studentId, int courseId);
 
-    WeatherAPIResponse getWeatherData(double lat, double lon);
+    WeatherAPIResponse getWeatherData(double lat, double lon) throws Exception;
 }

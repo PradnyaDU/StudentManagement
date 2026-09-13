@@ -69,7 +69,7 @@ public class StudentController {
     }
 
     @GetMapping("/getWeather")
-    public WeatherAPIResponse getWeather(@RequestParam double lat, @RequestParam double lon) {
+    public WeatherAPIResponse getWeather(@RequestParam double lat, @RequestParam double lon) throws Exception {
         return openWeatherService.getWeatherData(lat, lon);
     }
 
