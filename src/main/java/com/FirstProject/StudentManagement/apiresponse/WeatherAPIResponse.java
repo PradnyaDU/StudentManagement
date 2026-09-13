@@ -46,12 +46,14 @@ public class WeatherAPIResponse {
 
     @JsonProperty("cod")
     public int cod;
+
     @Data
     public static class Clouds {
 
         @JsonProperty("all")
         public int all;
     }
+
     @Data
     public static class Coord {
 

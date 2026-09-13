@@ -1,6 +1,6 @@
 package com.FirstProject.StudentManagement.controllers;
 
-import com.FirstProject.StudentManagement.dto.*;
+import com.FirstProject.StudentManagement.dto.UsersDto;
 import com.FirstProject.StudentManagement.service.UsersService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,6 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/users")
 public class UsersController {
-
 
     private final UsersService usersService;
 
@@ -43,6 +42,4 @@ public class UsersController {
     public UsersDto updateUserById(@PathVariable int id, @Valid @RequestBody UsersDto usersDto) {
         return usersService.updateUserById(id, usersDto);
     }
-
-
 }

@@ -19,7 +19,6 @@ public class RedisService {
         }
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(o.toString(), responseType);
-
     }
 
     public void setValue(String key, Object o, Long ttl) throws Exception {
@@ -28,6 +27,6 @@ public class RedisService {
             return;
         }
         String value = objectMapper.writeValueAsString(o);
-        redisTemplate.opsForValue().set(key, value,ttl, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set(key, value, ttl, TimeUnit.SECONDS);
     }
 }

@@ -35,7 +35,6 @@ public class OpenWeatherService {
             WeatherAPIResponse body = restTemplate.exchange(url, HttpMethod.GET, null, WeatherAPIResponse.class, lat, lon, apiKey).getBody();
             if (body != null) {
                 redisService.setValue("weather:" + lat + ":" + lon, body, 600L);
-
             }
             return body;
         }

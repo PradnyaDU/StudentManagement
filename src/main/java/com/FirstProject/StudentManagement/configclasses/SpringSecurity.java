@@ -4,7 +4,6 @@ import com.FirstProject.StudentManagement.service.CustomUserDetailsService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -45,8 +44,8 @@ public class SpringSecurity {
                 .authenticationProvider(authenticationProvider())
                 .authorizeHttpRequests(auth -> auth
                         //.requestMatchers("/users/**").hasRole("ADMIN")
-                        .requestMatchers( "/students/**").permitAll()
-                       // .hasAnyAuthority("CREATE_STUDENT", "READ_STUDENT")
+                        .requestMatchers("/students/**").permitAll()
+                        // .hasAnyAuthority("CREATE_STUDENT", "READ_STUDENT")
                         //.requestMatchers(HttpMethod.POST, "/students/sendMail").permitAll()
                         .anyRequest().authenticated()
                 )

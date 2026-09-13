@@ -12,9 +12,9 @@ import java.util.Map;
 
 @Configuration
 public class AppCacheConfig {
+    private final Map<String, String> cache = new HashMap<>();
     @Autowired
     private AppCacheRepository appCacheRepository;
-    private final Map<String, String> cache = new HashMap<>();
 
     @PostConstruct
     public void loadCache() {

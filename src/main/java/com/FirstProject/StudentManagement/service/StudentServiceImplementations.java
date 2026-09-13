@@ -1,5 +1,6 @@
 package com.FirstProject.StudentManagement.service;
 
+import com.FirstProject.StudentManagement.apiresponse.WeatherAPIResponse;
 import com.FirstProject.StudentManagement.dto.StudentCourseDetailsDto;
 import com.FirstProject.StudentManagement.dto.StudentDto;
 import com.FirstProject.StudentManagement.dto.StudentFeeDto;
@@ -7,7 +8,6 @@ import com.FirstProject.StudentManagement.entity.StudentEntity;
 import com.FirstProject.StudentManagement.entity.SubjectEntity;
 import com.FirstProject.StudentManagement.repository.StudentRepository;
 import com.FirstProject.StudentManagement.repository.SubjectRepo;
-import com.FirstProject.StudentManagement.apiresponse.WeatherAPIResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,6 +21,8 @@ import java.util.List;
 public class StudentServiceImplementations implements StudentService {
 
     private final StudentRepository studentRepository;
+    private final KafkaProducerService kafkaProducerService;
+
     private final SubjectRepo subjectRepo;
 
     @Override
@@ -45,7 +47,9 @@ public class StudentServiceImplementations implements StudentService {
         studentEntity.setStudentEmail(studentDto.getStudentEmail());
 
         StudentEntity savedStudent = studentRepository.save(studentEntity);
-
+        kafkaProducerService.sendStudentCreatedEvent(
+                savedStudent.getStudentEmail()
+        );
         return new StudentDto(
                 savedStudent.getId(),
                 savedStudent.getStudentName(),
@@ -200,4 +204,6 @@ public class StudentServiceImplementations implements StudentService {
         OpenWeatherService openWeatherService = new OpenWeatherService();
         return openWeatherService.getWeatherData(lat, lon);
     }
+
+
 }

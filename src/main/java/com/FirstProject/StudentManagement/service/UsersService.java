@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public interface UsersService {
-  
+
     List<UsersDto> getAllUsers();
 
     UsersDto getUserById(int id);

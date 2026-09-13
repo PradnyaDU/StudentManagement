@@ -75,13 +75,12 @@ public class StudentController {
 
     @PostMapping("/sendMail")
     public ResponseEntity<String> sendMail(@RequestBody Map<String, String> request) {
-         String to = request.get("to");
-         String subject = request.get("subject");
-         String body = request.get("body");
+        String to = request.get("to");
+        String subject = request.get("subject");
+        String body = request.get("body");
 
         emailService.sendEmail(to, subject, body);
         return ResponseEntity.ok("Email has been successfully sent.");
-
     }
 }
 
