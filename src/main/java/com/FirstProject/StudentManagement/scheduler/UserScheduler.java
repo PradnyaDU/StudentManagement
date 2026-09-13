@@ -14,17 +14,22 @@ public class UserScheduler {
     private EmailService emailService;
     private int emailCount = 0;
 
-    @Scheduled(cron = "0 */10 15-17 13 9 *")
+    @Scheduled(cron = "0 */5 15-17 13 9 *")
     public void sendEmailBySchedular() {
         emailCount++;
         LocalDateTime nextRunTime = LocalDateTime.now().plusMinutes(10);
         System.out.println("Next email will be sent at: " + nextRunTime);
         System.out.println("Sending email #" + emailCount);
         try {
-            List<String> to = List.of("bibaveharshal@gmail.com","deshpandepradnya18@gmail.com");
+            List<String> recipients = List.of(
+                    "bibaveharshal@gmail.com",
+                    "deshpandepradnya18@gmail.com"
+            );
             String subject = "Scheduled Email : " + emailCount;
             String body = "YOUR POTENTIAL MEANS NOTHING IF YOUR DISCIPLINE IS NON-EXISTENT - \nMARCUS AURELIUS. " + emailCount;
-            emailService.sendEmail(String.valueOf(to), subject, body);
+            for (String to : recipients) {
+                emailService.sendEmail(to, subject, body);
+            }
         } catch (Exception e) {
             // Handle exception
             e.printStackTrace();
