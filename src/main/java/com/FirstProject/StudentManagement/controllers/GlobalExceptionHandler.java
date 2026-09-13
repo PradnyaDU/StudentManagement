@@ -1,4 +1,4 @@
-package com.FirstProject.StudentManagement.Controllers;
+package com.FirstProject.StudentManagement.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

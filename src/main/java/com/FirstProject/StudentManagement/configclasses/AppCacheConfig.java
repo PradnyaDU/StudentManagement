@@ -1,7 +1,7 @@
 package com.FirstProject.StudentManagement.configclasses;
 
-import com.FirstProject.StudentManagement.DTO.AppCacheDTO;
-import com.FirstProject.StudentManagement.Repository.AppCacheRepository;
+import com.FirstProject.StudentManagement.dto.AppCacheDTO;
+import com.FirstProject.StudentManagement.repository.AppCacheRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

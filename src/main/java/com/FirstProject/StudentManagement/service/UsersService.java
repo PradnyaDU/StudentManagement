@@ -1,6 +1,6 @@
-package com.FirstProject.StudentManagement.Service;
+package com.FirstProject.StudentManagement.service;
 
-import com.FirstProject.StudentManagement.DTO.UsersDto;
+import com.FirstProject.StudentManagement.dto.UsersDto;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 

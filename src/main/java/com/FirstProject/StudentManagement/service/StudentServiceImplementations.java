@@ -1,12 +1,12 @@
-package com.FirstProject.StudentManagement.Service;
+package com.FirstProject.StudentManagement.service;
 
-import com.FirstProject.StudentManagement.DTO.StudentCourseDetailsDto;
-import com.FirstProject.StudentManagement.DTO.StudentDto;
-import com.FirstProject.StudentManagement.DTO.StudentFeeDto;
-import com.FirstProject.StudentManagement.Entity.StudentEntity;
-import com.FirstProject.StudentManagement.Entity.SubjectEntity;
-import com.FirstProject.StudentManagement.Repository.StudentRepository;
-import com.FirstProject.StudentManagement.Repository.SubjectRepo;
+import com.FirstProject.StudentManagement.dto.StudentCourseDetailsDto;
+import com.FirstProject.StudentManagement.dto.StudentDto;
+import com.FirstProject.StudentManagement.dto.StudentFeeDto;
+import com.FirstProject.StudentManagement.entity.StudentEntity;
+import com.FirstProject.StudentManagement.entity.SubjectEntity;
+import com.FirstProject.StudentManagement.repository.StudentRepository;
+import com.FirstProject.StudentManagement.repository.SubjectRepo;
 import com.FirstProject.StudentManagement.apiresponse.WeatherAPIResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

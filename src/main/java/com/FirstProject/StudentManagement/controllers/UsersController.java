@@ -1,7 +1,7 @@
-package com.FirstProject.StudentManagement.Controllers;
+package com.FirstProject.StudentManagement.controllers;
 
-import com.FirstProject.StudentManagement.DTO.*;
-import com.FirstProject.StudentManagement.Service.UsersService;
+import com.FirstProject.StudentManagement.dto.*;
+import com.FirstProject.StudentManagement.service.UsersService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

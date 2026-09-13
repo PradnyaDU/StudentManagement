@@ -1,7 +1,7 @@
-package com.FirstProject.StudentManagement.Controllers;
+package com.FirstProject.StudentManagement.controllers;
 
-import com.FirstProject.StudentManagement.DTO.SubjectsDto;
-import com.FirstProject.StudentManagement.Service.SubjectService;
+import com.FirstProject.StudentManagement.dto.SubjectsDto;
+import com.FirstProject.StudentManagement.service.SubjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

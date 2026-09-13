@@ -1,6 +1,6 @@
-package com.FirstProject.StudentManagement.Service;
+package com.FirstProject.StudentManagement.service;
 
-import com.FirstProject.StudentManagement.DTO.SubjectsDto;
+import com.FirstProject.StudentManagement.dto.SubjectsDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

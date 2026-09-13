@@ -1,8 +1,8 @@
-package com.FirstProject.StudentManagement.Service;
+package com.FirstProject.StudentManagement.service;
 
-import com.FirstProject.StudentManagement.DTO.SubjectsDto;
-import com.FirstProject.StudentManagement.Entity.SubjectEntity;
-import com.FirstProject.StudentManagement.Repository.SubjectRepo;
+import com.FirstProject.StudentManagement.dto.SubjectsDto;
+import com.FirstProject.StudentManagement.entity.SubjectEntity;
+import com.FirstProject.StudentManagement.repository.SubjectRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

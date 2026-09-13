@@ -1,7 +1,7 @@
-package com.FirstProject.StudentManagement.Service;
+package com.FirstProject.StudentManagement.service;
 
-import com.FirstProject.StudentManagement.Entity.Users;
-import com.FirstProject.StudentManagement.Repository.UsersRepo;
+import com.FirstProject.StudentManagement.entity.Users;
+import com.FirstProject.StudentManagement.repository.UsersRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

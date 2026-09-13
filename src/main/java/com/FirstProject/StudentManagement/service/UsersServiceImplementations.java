@@ -1,8 +1,8 @@
-package com.FirstProject.StudentManagement.Service;
+package com.FirstProject.StudentManagement.service;
 
-import com.FirstProject.StudentManagement.DTO.UsersDto;
-import com.FirstProject.StudentManagement.Entity.Users;
-import com.FirstProject.StudentManagement.Repository.UsersRepo;
+import com.FirstProject.StudentManagement.dto.UsersDto;
+import com.FirstProject.StudentManagement.entity.Users;
+import com.FirstProject.StudentManagement.repository.UsersRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

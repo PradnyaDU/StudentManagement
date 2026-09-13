@@ -1,4 +1,4 @@
-package com.FirstProject.StudentManagement.Entity;
+package com.FirstProject.StudentManagement.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

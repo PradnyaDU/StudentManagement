@@ -1,4 +1,4 @@
-package com.FirstProject.StudentManagement.Service;
+package com.FirstProject.StudentManagement.service;
 
 import com.FirstProject.StudentManagement.apiresponse.WeatherAPIResponse;
 import com.FirstProject.StudentManagement.configclasses.AppCacheConfig;

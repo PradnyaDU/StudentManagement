@@ -1,7 +1,5 @@
 package com.FirstProject.StudentManagement.service;
 
-import com.FirstProject.StudentManagement.Repository.UsersRepo;
-import com.FirstProject.StudentManagement.Service.UsersServiceImplementations;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

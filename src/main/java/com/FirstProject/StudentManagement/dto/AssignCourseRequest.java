@@ -1,4 +1,4 @@
-package com.FirstProject.StudentManagement.DTO;
+package com.FirstProject.StudentManagement.dto;
 
 import jakarta.validation.constraints.NotNull;
 

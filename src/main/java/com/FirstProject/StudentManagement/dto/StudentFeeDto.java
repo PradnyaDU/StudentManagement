@@ -1,4 +1,4 @@
-package com.FirstProject.StudentManagement.DTO;
+package com.FirstProject.StudentManagement.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,18 +1,21 @@
-package com.FirstProject.StudentManagement.Controllers;
+package com.FirstProject.StudentManagement.controllers;
 
-import com.FirstProject.StudentManagement.DTO.AssignCourseRequest;
-import com.FirstProject.StudentManagement.DTO.StudentCourseDetailsDto;
-import com.FirstProject.StudentManagement.DTO.StudentDto;
-import com.FirstProject.StudentManagement.DTO.StudentFeeDto;
-import com.FirstProject.StudentManagement.Service.OpenWeatherService;
-import com.FirstProject.StudentManagement.Service.StudentService;
 import com.FirstProject.StudentManagement.apiresponse.WeatherAPIResponse;
+import com.FirstProject.StudentManagement.dto.AssignCourseRequest;
+import com.FirstProject.StudentManagement.dto.StudentCourseDetailsDto;
+import com.FirstProject.StudentManagement.dto.StudentDto;
+import com.FirstProject.StudentManagement.dto.StudentFeeDto;
+import com.FirstProject.StudentManagement.service.EmailService;
+import com.FirstProject.StudentManagement.service.OpenWeatherService;
+import com.FirstProject.StudentManagement.service.StudentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,7 +25,7 @@ public class StudentController {
 
     private final StudentService studentService;
     private final OpenWeatherService openWeatherService;
-
+    private final EmailService emailService;
 
     @GetMapping()
     public List<StudentDto> getAllStudent() {
@@ -56,29 +59,29 @@ public class StudentController {
     }
 
     @PostMapping("/{studentId}/assign-course")
-    public StudentCourseDetailsDto assignCourseToStudent(
-            @PathVariable int studentId,
-            @Valid @RequestBody AssignCourseRequest request
-    ) {
-        return studentService.assignCourseToStudent(
-                studentId,
-                request.courseId()
-        );
+    public StudentCourseDetailsDto assignCourseToStudent(@PathVariable int studentId, @Valid @RequestBody AssignCourseRequest request) {
+        return studentService.assignCourseToStudent(studentId, request.courseId());
     }
 
     @DeleteMapping("/{studentId}/remove-course")
-    public StudentCourseDetailsDto removeCourseToStudent(
-            @PathVariable int studentId,
-            @Valid @RequestBody AssignCourseRequest request
-    ) {
-        return studentService.removeCourseToStudent(
-                studentId,
-                request.courseId()
-        );
+    public StudentCourseDetailsDto removeCourseToStudent(@PathVariable int studentId, @Valid @RequestBody AssignCourseRequest request) {
+        return studentService.removeCourseToStudent(studentId, request.courseId());
     }
 
     @GetMapping("/getWeather")
-    public WeatherAPIResponse getWeather(@RequestParam   double lat, @RequestParam double lon) {
+    public WeatherAPIResponse getWeather(@RequestParam double lat, @RequestParam double lon) {
         return openWeatherService.getWeatherData(lat, lon);
     }
+
+    @PostMapping("/sendMail")
+    public ResponseEntity<String> sendMail(@RequestBody Map<String, String> request) {
+         String to = request.get("to");
+         String subject = request.get("subject");
+         String body = request.get("body");
+
+        emailService.sendEmail(to, subject, body);
+        return ResponseEntity.ok("Email has been successfully sent.");
+
+    }
 }
+

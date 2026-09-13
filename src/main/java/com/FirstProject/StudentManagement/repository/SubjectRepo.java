@@ -1,6 +1,6 @@
-package com.FirstProject.StudentManagement.Repository;
+package com.FirstProject.StudentManagement.repository;
 
-import com.FirstProject.StudentManagement.Entity.SubjectEntity;
+import com.FirstProject.StudentManagement.entity.SubjectEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

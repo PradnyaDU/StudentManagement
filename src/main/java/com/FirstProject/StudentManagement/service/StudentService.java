@@ -1,8 +1,8 @@
-package com.FirstProject.StudentManagement.Service;
+package com.FirstProject.StudentManagement.service;
 
-import com.FirstProject.StudentManagement.DTO.StudentCourseDetailsDto;
-import com.FirstProject.StudentManagement.DTO.StudentDto;
-import com.FirstProject.StudentManagement.DTO.StudentFeeDto;
+import com.FirstProject.StudentManagement.dto.StudentCourseDetailsDto;
+import com.FirstProject.StudentManagement.dto.StudentDto;
+import com.FirstProject.StudentManagement.dto.StudentFeeDto;
 import com.FirstProject.StudentManagement.apiresponse.WeatherAPIResponse;
 import org.springframework.stereotype.Service;
 

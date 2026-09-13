@@ -1,6 +1,6 @@
-package com.FirstProject.StudentManagement.Repository;
+package com.FirstProject.StudentManagement.repository;
 
-import com.FirstProject.StudentManagement.DTO.AppCacheDTO;
+import com.FirstProject.StudentManagement.dto.AppCacheDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

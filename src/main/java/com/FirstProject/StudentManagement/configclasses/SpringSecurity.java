@@ -1,6 +1,6 @@
 package com.FirstProject.StudentManagement.configclasses;
 
-import com.FirstProject.StudentManagement.Service.CustomUserDetailsService;
+import com.FirstProject.StudentManagement.service.CustomUserDetailsService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,12 +41,13 @@ public class SpringSecurity {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
 
         http
-                //.csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf.disable())
                 .authenticationProvider(authenticationProvider())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/users/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/students/createStudent")
-                        .hasAnyAuthority("CREATE_STUDENT", "READ_STUDENT")
+                        //.requestMatchers("/users/**").hasRole("ADMIN")
+                        .requestMatchers( "/students/**").permitAll()
+                       // .hasAnyAuthority("CREATE_STUDENT", "READ_STUDENT")
+                        //.requestMatchers(HttpMethod.POST, "/students/sendMail").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(basic -> basic
