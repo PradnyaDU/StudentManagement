@@ -14,7 +14,7 @@ public class UserScheduler {
     private EmailService emailService;
     private int emailCount = 0;
 
-    @Scheduled(cron = "0 */10 0 14 9 *")
+    @Scheduled(cron = "0 */5 0 15 9 *")
     public void sendEmailBySchedular() {
         emailCount++;
         LocalDateTime nextRunTime = LocalDateTime.now().plusMinutes(10);
@@ -26,7 +26,7 @@ public class UserScheduler {
                     "deshpandepradnya18@gmail.com"
             );
             String subject = "Scheduled Email : " + emailCount;
-            String body = "Nothing hurts more than feeling alone while loving someone who was supposed to make you feel loved: " + emailCount;
+            String body = "Nothing " + emailCount;
             for (String to : recipients) {
                 emailService.sendEmail(to, subject, body);
             }

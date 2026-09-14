@@ -29,7 +29,7 @@ public class JWTUtil {
                 .header().empty().add("typ", "jwt") // Add the "typ" header)
                 .and()
                 .issuedAt(new java.util.Date(System.currentTimeMillis()))
-                .setExpiration(new java.util.Date(System.currentTimeMillis() + 1000 * 60 * 2)) // Token valid for 10 hours
+                .setExpiration(new java.util.Date(System.currentTimeMillis() + 1000 * 60 * 15)) // Token valid for 10 hours
                 .signWith(getSigningKey()) // Use a
                 .compact();
     }
@@ -37,5 +37,29 @@ public class JWTUtil {
     private Key getSigningKey() {
         // Implementation for getting the signing key
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
+    }
+
+    public String extractUsername(String token) {
+        return Jwts.parser()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .getSubject();
+    }
+
+    public boolean validateToken(String token, UserDetails userDetails) {
+        String username = extractUsername(token);
+        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+    }
+
+    private boolean isTokenExpired(String token) {
+        return Jwts.parser()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .getExpiration()
+                .before(new java.util.Date());
     }
 }

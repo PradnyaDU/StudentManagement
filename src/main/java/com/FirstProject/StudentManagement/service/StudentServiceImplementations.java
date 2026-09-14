@@ -47,9 +47,9 @@ public class StudentServiceImplementations implements StudentService {
         studentEntity.setStudentEmail(studentDto.getStudentEmail());
 
         StudentEntity savedStudent = studentRepository.save(studentEntity);
-        kafkaProducerService.sendStudentCreatedEvent(
-                savedStudent.getStudentEmail()
-        );
+//        kafkaProducerService.sendStudentCreatedEvent(
+//                savedStudent.getStudentEmail()
+//        );
         return new StudentDto(
                 savedStudent.getId(),
                 savedStudent.getStudentName(),
